@@ -1,16 +1,10 @@
 ﻿using ExplorandoCSharp.Models;
 
 
-Person p = new Person();
-p.Name="Ana";
-p.Surname="Walker";
-p.Age=20;
+Person p = new Person(name:"Ana", surname:"Walker");
 // p.IntroduceYourself();
 
-Person p2 = new Person();
-p2.Name="Gustavo";
-p2.Surname="Santos";
-p2.Age=20;
+Person p2 = new Person(name: "Gustavo", surname: "Santos");
 
 Course englishCourse = new Course();
 englishCourse.Name = "Basic English Course";

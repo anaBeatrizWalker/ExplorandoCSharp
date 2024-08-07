@@ -7,6 +7,17 @@ namespace ExplorandoCSharp.Models
 {
     public class Person
     {
+        //Construtores
+        public Person()
+        {
+
+        }
+        public Person(string name, string surname)
+        {
+            Name = name;
+            Surname = surname;
+        }
+
         //Encapsulamento (criando campos para armazenar as propriedades)
         private string _name;
         private int _age;
