@@ -29,9 +29,14 @@ namespace ExplorandoCSharp.Models
 
         public void GetStudents()
         {
-            foreach(Person student in Students)
+            //Interpolação de strings
+            Console.WriteLine($"Students of the course: {Name}");
+
+            for(int count =0; count< Students.Count; count++)
             {
-                Console.WriteLine(student.CompleteName);
+                //Concatenação de strings 
+                string result = "Nº " + (count + 1) + " - " + Students[count].CompleteName;
+                Console.WriteLine(result);
             }
         }
     }
