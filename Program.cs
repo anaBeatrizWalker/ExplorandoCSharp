@@ -73,22 +73,117 @@ try
 } 
 catch(FileNotFoundException ex)
 {
-    Console.WriteLine($"Ocorreu uma exceção específica: arquivo não encontrado. {ex.Message}");
+    // Console.WriteLine($"Ocorreu uma exceção específica: arquivo não encontrado. {ex.Message}");
 }
 catch(DirectoryNotFoundException ex)
 {
-    Console.WriteLine($"Ocorreu uma exceção específica: diretório não encontrado. {ex.Message}");
+    // Console.WriteLine($"Ocorreu uma exceção específica: diretório não encontrado. {ex.Message}");
 }
 catch(Exception ex)
 {
-    Console.WriteLine($"Ocorreu uma exceção genérica: algo deu errado. {ex.Message}");
+    // Console.WriteLine($"Ocorreu uma exceção genérica: algo deu errado. {ex.Message}");
 }
 finally
 {
-    Console.WriteLine("Continuando o programa...");
+    // Console.WriteLine("Continuando o programa...");
 }
 
 //Usando throw
-new ExceptionExample().Method1();
+// new ExceptionExample().Method1();
 
+#endregion
+
+#region Coleções
+
+//Queue (Fila) - FIFO: First In First Out
+Queue<int> myQueue = new Queue<int>();
+
+myQueue.Enqueue(2);
+myQueue.Enqueue(4);
+myQueue.Enqueue(6);
+myQueue.Enqueue(8);
+
+foreach(int item in myQueue)
+{
+    Console.WriteLine(item); //2 4 6 8
+}
+
+Console.WriteLine($"Removendo o elemento: {myQueue.Dequeue()}"); //2
+
+myQueue.Enqueue(10);
+
+foreach(int item in myQueue)
+{
+    Console.WriteLine(item); //4 6 8 10
+}
+
+
+//Stack (Pilha) - LIFO: Last In First Out
+Stack<int> myStack = new Stack<int>();
+
+myStack.Push(1);
+myStack.Push(3);
+myStack.Push(5);
+myStack.Push(7);
+
+foreach(int item in myStack)
+{
+    Console.WriteLine(item); //7 5 3 1
+}
+
+Console.WriteLine($"Removendo o elemento: {myStack.Pop()}"); //7
+
+myStack.Push(11);
+
+foreach(int item in myStack)
+{
+    Console.WriteLine(item); //11 5 3 1
+}
+
+//Dictionary
+Dictionary<string, string> states = new Dictionary<string, string>(); //tipo da chave, tipo do valor
+
+states.Add("SP", "São Paulo");
+states.Add("BA", "Bahia");
+states.Add("MG", "Minas Gerais");
+
+foreach(var item in states)
+{
+    Console.WriteLine($"Chave: {item.Key} - Valor: {item.Value}");
+}
+
+//states.Add("BA", "Bahia"); = Unhandled exception. System.ArgumentException: An item with the same key has already been added.
+
+Console.WriteLine("----- Removendo um item -----");
+
+states.Remove("BA");
+
+foreach(var item in states)
+{
+    Console.WriteLine($"Chave: {item.Key} - Valor: {item.Value}");
+}
+
+Console.WriteLine("----- Alterando o valor de um item -----");
+
+states["SP"] = "São Paulo Alterado";
+
+foreach(var item in states)
+{
+    Console.WriteLine($"Chave: {item.Key} - Valor: {item.Value}");
+}
+
+Console.WriteLine("----- Procurando um item -----");
+
+string key = "MG";
+
+Console.WriteLine($"Item buscado: {key}");
+
+if(states.ContainsKey(key))
+{
+    Console.WriteLine($"Chave {key} encontrada! Seu valor correspondente é {states[key]}");
+}
+else
+{
+    Console.WriteLine($"Chave {key} não encontrada. É seguro adicionar essa chave");
+}
 #endregion
