@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using ExplorandoCSharp.Models;
+using Newtonsoft.Json;
 
 #region Classes e suas propriedades
 Person p = new Person(name:"Ana", surname:"Walker");
@@ -240,6 +241,25 @@ bool isEven = false;
 
 isEven = number1 % 2 == 0;
 
-Console.WriteLine($"O número {number1} é " + (isEven ? "par" : "ímpar"));
+// Console.WriteLine($"O número {number1} é " + (isEven ? "par" : "ímpar"));
+
+#endregion
+
+#region Serialização
+
+DateTime currentDate = DateTime.Now;
+
+List<Sale> salesList = new List<Sale>();
+
+Sale sale1 = new Sale(1, "office supplies", 25.00M, currentDate);
+Sale sale2 = new Sale(2, "software license", 110.00M, currentDate);
+
+salesList.Add(sale1);
+salesList.Add(sale2);
+
+string serialized = JsonConvert.SerializeObject(salesList, Formatting.Indented);
+
+//Escrevendo num novo arquivo
+File.WriteAllText("Files/sales.json", serialized);
 
 #endregion
