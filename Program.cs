@@ -105,16 +105,16 @@ myQueue.Enqueue(8);
 
 foreach(int item in myQueue)
 {
-    Console.WriteLine(item); //2 4 6 8
+    // Console.WriteLine(item); //2 4 6 8
 }
 
-Console.WriteLine($"Removendo o elemento: {myQueue.Dequeue()}"); //2
+// Console.WriteLine($"Removendo o elemento: {myQueue.Dequeue()}"); //2
 
 myQueue.Enqueue(10);
 
 foreach(int item in myQueue)
 {
-    Console.WriteLine(item); //4 6 8 10
+    // Console.WriteLine(item); //4 6 8 10
 }
 
 
@@ -128,16 +128,16 @@ myStack.Push(7);
 
 foreach(int item in myStack)
 {
-    Console.WriteLine(item); //7 5 3 1
+    // Console.WriteLine(item); //7 5 3 1
 }
 
-Console.WriteLine($"Removendo o elemento: {myStack.Pop()}"); //7
+// Console.WriteLine($"Removendo o elemento: {myStack.Pop()}"); //7
 
 myStack.Push(11);
 
 foreach(int item in myStack)
 {
-    Console.WriteLine(item); //11 5 3 1
+    // Console.WriteLine(item); //11 5 3 1
 }
 
 //Dictionary
@@ -149,41 +149,77 @@ states.Add("MG", "Minas Gerais");
 
 foreach(var item in states)
 {
-    Console.WriteLine($"Chave: {item.Key} - Valor: {item.Value}");
+    // Console.WriteLine($"Chave: {item.Key} - Valor: {item.Value}");
 }
 
 //states.Add("BA", "Bahia"); = Unhandled exception. System.ArgumentException: An item with the same key has already been added.
 
-Console.WriteLine("----- Removendo um item -----");
+// Console.WriteLine("----- Removendo um item -----");
 
 states.Remove("BA");
 
 foreach(var item in states)
 {
-    Console.WriteLine($"Chave: {item.Key} - Valor: {item.Value}");
+    // Console.WriteLine($"Chave: {item.Key} - Valor: {item.Value}");
 }
 
-Console.WriteLine("----- Alterando o valor de um item -----");
+// Console.WriteLine("----- Alterando o valor de um item -----");
 
 states["SP"] = "São Paulo Alterado";
 
 foreach(var item in states)
 {
-    Console.WriteLine($"Chave: {item.Key} - Valor: {item.Value}");
+    // Console.WriteLine($"Chave: {item.Key} - Valor: {item.Value}");
 }
 
-Console.WriteLine("----- Procurando um item -----");
+// Console.WriteLine("----- Procurando um item -----");
 
 string key = "MG";
 
-Console.WriteLine($"Item buscado: {key}");
+// Console.WriteLine($"Item buscado: {key}");
 
 if(states.ContainsKey(key))
 {
-    Console.WriteLine($"Chave {key} encontrada! Seu valor correspondente é {states[key]}");
+    // Console.WriteLine($"Chave {key} encontrada! Seu valor correspondente é {states[key]}");
 }
 else
 {
-    Console.WriteLine($"Chave {key} não encontrada. É seguro adicionar essa chave");
+    // Console.WriteLine($"Chave {key} não encontrada. É seguro adicionar essa chave");
 }
+#endregion
+
+#region Tuplas
+
+(int Id, string Name, string Surname) myTuple = (1, "Ana", "Walker");
+
+Console.WriteLine($"ID: {myTuple.Id}");
+Console.WriteLine($"Nome: {myTuple.Name}");
+Console.WriteLine($"Sobrenome: {myTuple.Surname}");
+
+ValueTuple<int, string, string> otherTupleExample = (2, "Gustavo", "Brito");
+
+var otherTupleExample2 = Tuple.Create(3, "Júlia", "Barreto");
+
+Console.WriteLine($"ID: {otherTupleExample.Item1}");
+Console.WriteLine($"Nome: {otherTupleExample.Item2}");
+Console.WriteLine($"Sobrenome: {otherTupleExample.Item3}");
+
+//Tuplas em métodos
+ReadFile file = new ReadFile();
+
+var (success, fileLines, linesQuantity) = file.ReadAndReturnFile("Files/readFile.txt");
+
+if(success)
+{
+    Console.WriteLine("Quantidade de linhas do arquivo: " + linesQuantity);
+    foreach(string line in fileLines)
+    {
+        Console.WriteLine(line);
+    }
+}
+else 
+{
+    Console.WriteLine("Não foi possível ler o arquivo.");
+}
+
 #endregion
