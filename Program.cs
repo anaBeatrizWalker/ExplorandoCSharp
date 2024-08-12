@@ -213,12 +213,22 @@ if(success)
 {
     foreach(string line in fileLines)
     {
-        Console.WriteLine(line);
+        // Console.WriteLine(line);
     }
 }
 else 
 {
     Console.WriteLine("Não foi possível ler o arquivo.");
 }
+
+#endregion
+
+#region Desconstrutor
+
+Person p3 = new Person("Cláudia", "Souza");
+
+(string name, string surname) = p3;
+
+Console.WriteLine($"{name} {surname}");
 
 #endregion

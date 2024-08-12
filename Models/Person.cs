@@ -18,6 +18,13 @@ namespace ExplorandoCSharp.Models
             Surname = surname;
         }
 
+        public void Deconstruct(out string name, out string surname)
+        {
+            //a variável recebe a propriedade
+            name = Name;
+            surname = Surname;
+        }
+
         //Encapsulamento (criando campos para armazenar as propriedades)
         private string _name;
         private int _age;
