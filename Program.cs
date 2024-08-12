@@ -260,6 +260,19 @@ salesList.Add(sale2);
 string serialized = JsonConvert.SerializeObject(salesList, Formatting.Indented);
 
 //Escrevendo num novo arquivo
-File.WriteAllText("Files/sales.json", serialized);
+// File.WriteAllText("Files/sales.json", serialized);
+
+#endregion
+
+#region Deserialização
+
+string fileContent = File.ReadAllText("Files/sales.json");
+
+List<Sale> salesList2 = JsonConvert.DeserializeObject<List<Sale>>(fileContent);
+
+foreach(Sale sale in salesList2)
+{
+    Console.WriteLine($"ID: {sale.Id} | Product: {sale.Product} | Price: {sale.Price} | Date: {sale.Date}");
+}
 
 #endregion
