@@ -1,13 +1,13 @@
 [
   {
     "Id": 1,
-    "Product": "office supplies",
+    "Product_Name": "office supplies",
     "Price": 25.00,
     "Date": "2024-08-12T19:01:31.4756876-03:00"
   },
   {
     "Id": 2,
-    "Product": "software license",
+    "Product_Name": "software license",
     "Price": 110.00,
     "Date": "2024-08-12T19:01:31.4756876-03:00"
   }
