@@ -192,26 +192,25 @@ else
 
 (int Id, string Name, string Surname) myTuple = (1, "Ana", "Walker");
 
-Console.WriteLine($"ID: {myTuple.Id}");
-Console.WriteLine($"Nome: {myTuple.Name}");
-Console.WriteLine($"Sobrenome: {myTuple.Surname}");
+// Console.WriteLine($"ID: {myTuple.Id}");
+// Console.WriteLine($"Nome: {myTuple.Name}");
+// Console.WriteLine($"Sobrenome: {myTuple.Surname}");
 
 ValueTuple<int, string, string> otherTupleExample = (2, "Gustavo", "Brito");
 
 var otherTupleExample2 = Tuple.Create(3, "Júlia", "Barreto");
 
-Console.WriteLine($"ID: {otherTupleExample.Item1}");
-Console.WriteLine($"Nome: {otherTupleExample.Item2}");
-Console.WriteLine($"Sobrenome: {otherTupleExample.Item3}");
+// Console.WriteLine($"ID: {otherTupleExample.Item1}");
+// Console.WriteLine($"Nome: {otherTupleExample.Item2}");
+// Console.WriteLine($"Sobrenome: {otherTupleExample.Item3}");
 
-//Tuplas em métodos
+//Tuplas em métodos e Descartes
 ReadFile file = new ReadFile();
 
-var (success, fileLines, linesQuantity) = file.ReadAndReturnFile("Files/readFile.txt");
+var (success, fileLines, _) = file.ReadAndReturnFile("Files/readFile.txt");
 
 if(success)
 {
-    Console.WriteLine("Quantidade de linhas do arquivo: " + linesQuantity);
     foreach(string line in fileLines)
     {
         Console.WriteLine(line);
