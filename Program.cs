@@ -229,6 +229,17 @@ Person p3 = new Person("Cláudia", "Souza");
 
 (string name, string surname) = p3;
 
-Console.WriteLine($"{name} {surname}");
+// Console.WriteLine($"{name} {surname}");
+
+#endregion
+
+#region If Ternário
+
+int number1 = 14;
+bool isEven = false;
+
+isEven = number1 % 2 == 0;
+
+Console.WriteLine($"O número {number1} é " + (isEven ? "par" : "ímpar"));
 
 #endregion
